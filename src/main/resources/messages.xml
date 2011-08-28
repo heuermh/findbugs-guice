@@ -19,9 +19,9 @@
 		</Details>
 	</Detector>
 
-	<BugPattern type="GUICE_SCOPE_ON_ANNOTATION">
-		<ShortDescription>Scope annotations on interfaces</ShortDescription>
-		<LongDescription>Scope annotations on interfaces are not supported in Guice.</LongDescription>
+	<BugPattern type="GUICE_SCOPE_ON_INTERFACE">
+		<ShortDescription>Scope annotation on interfaces</ShortDescription>
+		<LongDescription>Interface {0} is annotated with a scope, {1}.</LongDescription>
 		<Details>
 			details
 		</Details>

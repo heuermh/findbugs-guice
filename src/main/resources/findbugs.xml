@@ -2,12 +2,12 @@
         xsi:noNamespaceSchemaLocation="http://findbugs.googlecode.com/svn/trunk/findbugs/etc/findbugsplugin.xsd" 
         pluginid="uk.me.tom_fitzhenry.findbugs.guice"
         defaultenabled="true"
-        provider="Guice best practices"
-        website="http://google.com"> 
+        provider="findbugs-guice"
+        website="http://github.com/tomfitzhenry/findbugs-guice"> 
 
         <Detector class="uk.me.tom_fitzhenry.findbugs.guice.ScopingOnInterfacesDetector"
                   speed="fast"
-                  reports="GUICE_SCOPE_ON_ANNOTATION"
+                  reports="GUICE_SCOPE_ON_INTERFACE"
         />
                   
         <Detector class="uk.me.tom_fitzhenry.findbugs.guice.SuspiciousSubmoduleConfigurationDetector"
@@ -15,7 +15,7 @@
                   reports="GUICE_SUSPICIOUS_SUBMODULE_CONFIGURATION"
         />
         
-        <BugPattern type="GUICE_SCOPE_ON_ANNOTATION"
+        <BugPattern type="GUICE_SCOPE_ON_INTERFACE"
                     category="CORRECTNESS"
                     abbrev="GUICE"
         />

@@ -35,8 +35,9 @@ public class ScopingOnInterfacesDetector implements Detector {
             final XClass annotationInfo = classDescriptionToXClass(annotation.getAnnotationClass());
             for (AnnotationValue annotationAnnotation : annotationInfo.getAnnotations()) {
                 if (annotationAnnotation.getAnnotationClass().getDottedClassName().equals(SCOPE_ANNOTATION)) {
-                    bugReporter.reportBug(new BugInstance(this, "GUICE_SCOPE_ON_ANNOTATION",
-                            NORMAL_PRIORITY).addClass(classInfo.getClassDescriptor()));
+                    bugReporter.reportBug(new BugInstance(this, "GUICE_SCOPE_ON_INTERFACE",
+                            NORMAL_PRIORITY).addClass(classInfo.getClassDescriptor())
+                                            .addString(annotationAnnotation.getAnnotationClass().getSimpleName()));
                 }
             }
         }

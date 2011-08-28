@@ -34,7 +34,7 @@ public class ScopingOnInterfacesDetectorTest {
     }
     
     private void assertBugReportedAgainstClass(Class<?> classToTest) throws Exception {
-        DetectorAssert.assertBugReported(classToTest, detector, bugReporter, ofType("GUICE_SCOPE_ON_ANNOTATION"));
+        DetectorAssert.assertBugReported(classToTest, detector, bugReporter, ofType("GUICE_SCOPE_ON_INTERFACE"));
     }
     
     private void assertNoBugsReportedForClass(Class<?> classToTest) throws Exception {
