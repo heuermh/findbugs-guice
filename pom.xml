@@ -75,6 +75,19 @@
 		</plugins>
 	</build>
 
+    <repositories>
+        <!-- Until test-driven-development4findbugs is available via Maven Central (or some such)
+             I will host it.
+             
+             See https://github.com/youdevise/test-driven-detectors4findbugs/issues/3
+        -->
+        <repository>
+            <id>tomfitzhenrys-repo-for-test-driven-development4findbugs</id>
+            <name>Repository to host artifacts needed for findbugs-guice</name>
+            <url>http://tomfitzyuk.uwcs.co.uk/maven</url>
+        </repository>
+    </repositories>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
