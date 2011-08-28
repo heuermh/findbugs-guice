@@ -4,7 +4,7 @@
 
 	<Plugin>
 		<ShortDescription>Guice</ShortDescription>
-		<Details>Finds bugs relating to Guice: http://code.google.com/p/google-guice/</Details>
+		<Details>Provides detectors relating to Guice: http://code.google.com/p/google-guice/</Details>
 	</Plugin>
 
 	<Detector class="uk.me.tom_fitzhenry.findbugs.guice.ScopingOnInterfacesDetector">
@@ -15,7 +15,7 @@
 	
 	<Detector class="uk.me.tom_fitzhenry.findbugs.guice.SuspiciousSubmoduleConfigurationDetector">
 		<Details>
-			Finds suspiciously configuration of submodules.
+			Finds suspicious configuration of submodules.
 		</Details>
 	</Detector>
 
@@ -23,15 +23,50 @@
 		<ShortDescription>Scope annotation on interfaces</ShortDescription>
 		<LongDescription>Interface {0} is annotated with a scope, {1}.</LongDescription>
 		<Details>
-			details
+			<![CDATA[
+			Guice does not support annotating an interface with a scope.
+			
+			<p>When Guice is asked to inject an interface that is annotated with a scope, it will throw a runtime exception.</p>
+			
+			<p>Recommended alternatives:
+			<ul>
+			    <li>Annotate the implementation (rather than the interface), or</li>
+			    <li>Set the scope when defining the binding in a module, e.g.: 
+			    <pre>bind(PaymentProcessor.class).to(CreditCardProcessor.class);</pre>
+			    to 
+			    <pre>bind(PaymentProcessor.class).to(CreditCardProcessor.class).in(MyScope.class);</pre></li>
+			</ul>
+			]]>
 		</Details>
 	</BugPattern>
 	
 	<BugPattern type="GUICE_SUSPICIOUS_SUBMODULE_CONFIGURATION">
-		<ShortDescription>Suspicious sub module configuration</ShortDescription>
-		<LongDescription>Submodules should be configured via install(Module)</LongDescription>
+		<ShortDescription>Suspicious submodule configuration</ShortDescription>
+		<LongDescription>Modules should be configured via install(Module)</LongDescription>
 		<Details>
-			details
+			<![CDATA[
+			Using Module.configure(Binder) to configure bindings will not bind the module's @Provider methods.
+			
+			<p>To correctly configure bindings, use AbstractModule.install(Module) (or Binder.install(Module), if your module don't extend AbstractModule).</p>
+			
+			<p>For example:
+			<pre>
+	public MyModule extends AbstractModule {
+	    public void configure() {
+	        new AnotherModule().configure(binder());
+	    }
+	}
+			</pre>
+			
+			should be:
+			<pre>
+	public MyModule extends AbstractModule {
+	    public void configure() {
+	        install(new AnotherModule());
+	    }
+	}
+			</pre>
+			]]>
 		</Details>
 	</BugPattern>
 	
