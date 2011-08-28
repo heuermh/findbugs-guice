@@ -33,7 +33,7 @@
 			<groupId>com.youdevise</groupId>
 			<artifactId>test-driven-detectors4findbugs</artifactId>
             <!-- 0.2 is a version I have made but haven't yet submitted to upstream -->
-			<version>0.2</version>
+			<version>0.2-SNAPSHOT</version>
 			<scope>test</scope>
 		</dependency>
 
