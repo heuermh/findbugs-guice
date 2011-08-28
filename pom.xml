@@ -92,6 +92,10 @@
             <id>tomfitzhenrys-repo-for-test-driven-development4findbugs</id>
             <name>Repository to host artifacts needed for findbugs-guice</name>
             <url>http://tomfitzyuk.uwcs.co.uk/maven</url>
+
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
         </repository>
     </repositories>
 
