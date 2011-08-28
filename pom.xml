@@ -5,6 +5,13 @@
 	<artifactId>findbugs-guice</artifactId>
 	<version>0.1-SNAPSHOT</version>
 	<name>findbugs-guice</name>
+	<url>https://github.com/tomfitzhenry/findbugs-guice</url>
+
+	<scm>
+		<url>https://github.com/tomfitzhenry/findbugs-guice</url>
+		<connection>scm:git:git://github.com/tomfitzhenry/findbugs-guice.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/tomfitzhenry/findbugs-guice.git</developerConnection>
+	</scm>
 
     <licenses>
         <license>
