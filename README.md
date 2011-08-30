@@ -6,7 +6,7 @@ How to install
 --------------
 Install findbugs-guice like any other Findbugs detector:
 
-1. Put [the JAR](https://github.com/downloads/tomfitzhenry/findbugs-guice/findbugs-guice-0.1.jar) in `FINDBUGS_HOME/plugin`.
+1. Put [the JAR](https://github.com/downloads/tomfitzhenry/findbugs-guice/findbugs-guice-0.2.jar) in `FINDBUGS_HOME/plugin`.
 2. Test your installation against [code which exhibits the issues that findbugs-guice detects](https://github.com/tomfitzhenry/findbugs-guice/tree/master/src/test/benchmarks).
 
 How to build
