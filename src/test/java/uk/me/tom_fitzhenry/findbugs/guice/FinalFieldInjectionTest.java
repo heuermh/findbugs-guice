@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.me.tom_fitzhenry.findbugs.guice.benchmarks.ClassContainingAFinalFieldAnnotatedAssignedWithDeclaration;
+import uk.me.tom_fitzhenry.findbugs.guice.benchmarks.ClassContainingAFinalFieldAnnotatedWithInjectAssignedWithDeclaration;
 import uk.me.tom_fitzhenry.findbugs.guice.benchmarks.ClassContainingAFinalFieldAnnotatedWithInjectAssignedInConstructor;
 
 import com.google.inject.AbstractModule;
@@ -30,7 +30,7 @@ public class FinalFieldInjectionTest {
 	
 	@Test
 	public void guiceDoesNotInjectFinalFieldsIfAssignedWithDeclaration() {
-		ClassContainingAFinalFieldAnnotatedAssignedWithDeclaration benchmark = injector.getInstance(ClassContainingAFinalFieldAnnotatedAssignedWithDeclaration.class);
+		ClassContainingAFinalFieldAnnotatedWithInjectAssignedWithDeclaration benchmark = injector.getInstance(ClassContainingAFinalFieldAnnotatedWithInjectAssignedWithDeclaration.class);
 		assertEquals("non injected string", benchmark.getFoo());
 	}
 	
