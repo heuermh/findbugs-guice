@@ -28,7 +28,7 @@ public class StaticFieldInjectionDetector implements Detector {
 			if (field.isStatic()) {
 				for (ClassDescriptor annotation : field.getAnnotationDescriptors()) {
 					if (annotation.getSimpleName().equals("Inject")) {
-						bugReporter.reportBug(new BugInstance("GUICE_STATIC_FIELD_INJECTION", NORMAL_PRIORITY));
+						bugReporter.reportBug(new BugInstance("GUICE_STATIC_FIELD_INJECTION", NORMAL_PRIORITY).addClass(classContext.getClassDescriptor()));
 					}
 				}
 			}

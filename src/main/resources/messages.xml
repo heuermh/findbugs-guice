@@ -18,6 +18,12 @@
 			Finds suspicious configuration of submodules.
 		</Details>
 	</Detector>
+	
+	<Detector class="uk.me.tom_fitzhenry.findbugs.guice.StaticFieldInjectionDetector">
+		<Details>
+			Finds static fields annotated with @Inject.
+		</Details>
+	</Detector>
 
 	<BugPattern type="GUICE_SCOPE_ON_INTERFACE">
 		<ShortDescription>Scope annotation on interfaces</ShortDescription>
@@ -67,6 +73,14 @@
 	}
 			</pre>
 			]]>
+		</Details>
+	</BugPattern>
+	
+	<BugPattern type="GUICE_STATIC_FIELD_INJECTION">
+		<ShortDescription>Static field annotated with @Inject</ShortDescription>
+		<LongDescription>Guice does not perform field injection on static fields.</LongDescription>
+		<Details>
+		Guice does not perform field injection on static fields.
 		</Details>
 	</BugPattern>
 	
