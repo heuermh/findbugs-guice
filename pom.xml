@@ -8,7 +8,7 @@
 	
 	<scm>
 		<url>https://github.com/tomfitzhenry/findbugs-guice</url>
-		<connection>scm:git:git://github.com/tomfitzhenry/findbugs-guice.git</connection>
+		<connection>scm:git://github.com/tomfitzhenry/findbugs-guice.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com/tomfitzhenry/findbugs-guice.git</developerConnection>
 	</scm>
 	
