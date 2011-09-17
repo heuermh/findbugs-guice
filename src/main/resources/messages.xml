@@ -24,6 +24,12 @@
 			Finds static fields annotated with @Inject.
 		</Details>
 	</Detector>
+	
+	<Detector class="uk.me.tom_fitzhenry.findbugs.guice.FinalFieldInjectionDetector">
+	    <Details>
+	    	Finds final fields annotated with @Inject.
+	    </Details>
+	</Detector>
 
 	<BugPattern type="GUICE_SCOPE_ON_INTERFACE">
 		<ShortDescription>Scope annotation on interfaces</ShortDescription>
@@ -81,6 +87,45 @@
 		<LongDescription>Guice does not perform field injection on static fields.</LongDescription>
 		<Details>
 		Guice does not perform field injection on static fields.
+		</Details>
+	</BugPattern>
+	
+	<BugPattern type="GUICE_FINAL_FIELD_INJECTION">
+		<ShortDescription>Final field annotated with @Inject</ShortDescription>
+		<LongDescription>Guice does not support final field injection.</LongDescription>
+		<Details>
+			<![CDATA[
+		    <p>"Never inject final fields" --
+		    <a href="http://code.google.com/p/google-guice/wiki/MinimizeMutability">Guice best practices : MinimizeMutability</a></p>
+		    
+		    <p>Note that while Guice will inject:
+		    <pre>
+    class Foo {
+        @Inject String myString = "";
+    }
+		    </pre>
+		    
+		    ... Guice will not inject:
+		    <pre>
+    class Bar {
+        @Inject String myString;
+        Bar() {
+            myString = "";
+        }
+    }
+		    </pre>
+		    
+		    <p>As such, using final field injection can lead to confusion.</p>
+		    <p>Furthermore, since Guice documentation says to not use final field injection,
+		    you should not: its behaviour may change.</p> 
+		    
+		    <p>See also:</p>
+		    <ul>
+		       <li><a href="http://code.google.com/p/google-guice/issues/detail?id=245">Guice issue #245: Guice should refuse to inject final fields</a></li>
+		    </ul>
+		    
+		    ]]>
+		       
 		</Details>
 	</BugPattern>
 	

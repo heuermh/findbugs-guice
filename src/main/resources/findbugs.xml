@@ -20,6 +20,11 @@
                   reports="GUICE_STATIC_FIELD_INJECTION"
         />
         
+        <Detector class="uk.me.tom_fitzhenry.findbugs.guice.FinalFieldInjectionDetector"
+                  speed="fast"
+                  reports="GUICE_FINAL_FIELD_INJECTION"
+        />
+        
         <BugPattern type="GUICE_SCOPE_ON_INTERFACE"
                     category="CORRECTNESS"
                     abbrev="GUICE"
@@ -31,6 +36,11 @@
         />
         
         <BugPattern type="GUICE_STATIC_FIELD_INJECTION"
+                    category="CORRECTNESS"
+                    abbrev="GUICE"
+        />
+        
+        <BugPattern type="GUICE_FINAL_FIELD_INJECTION"
                     category="CORRECTNESS"
                     abbrev="GUICE"
         />
