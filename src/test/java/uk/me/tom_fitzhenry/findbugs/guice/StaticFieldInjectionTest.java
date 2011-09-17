@@ -1,7 +1,6 @@
 package uk.me.tom_fitzhenry.findbugs.guice;
 
-import static org.junit.Assert.*;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertFalse;
 
 import org.junit.Test;
 
