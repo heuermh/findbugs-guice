@@ -18,7 +18,6 @@ public class StaticFieldInjectionDetector implements Detector {
 
 	@Override
 	public void report() {
-		// Nothing at all.
 	}
 
 	@Override
