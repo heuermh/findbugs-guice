@@ -84,7 +84,7 @@
 	
 	<BugPattern type="GUICE_STATIC_FIELD_INJECTION">
 		<ShortDescription>Static field annotated with @Inject</ShortDescription>
-		<LongDescription>Static field injection is recommended against.</LongDescription>
+		<LongDescription>Injection on static field {1.name} is recommended against</LongDescription>
 		<Details>
 			<![CDATA[
 			"New applications developed with Guice should not use [requestStaticInjection()]." -- <a href="http://code.google.com/p/google-guice/wiki/AvoidStaticState">Guice: Avoid static state</a>.
@@ -97,7 +97,7 @@
 	
 	<BugPattern type="GUICE_FINAL_FIELD_INJECTION">
 		<ShortDescription>Final field annotated with @Inject</ShortDescription>
-		<LongDescription>Guice does not support final field injection.</LongDescription>
+		<LongDescription>{1.name}, a final field, is annotated with @Inject</LongDescription>
 		<Details>
 			<![CDATA[
 		    <p>"Never inject final fields" --
