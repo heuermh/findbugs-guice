@@ -2,6 +2,13 @@ findbugs-guice
 ==============
 findbugs-guice is a [Findbugs](http://code.google.com/p/findbugs/) detector for [Guice](http://code.google.com/p/google-guice/).
 
+findbugs-guice detects:
+
+  * scope annotations on interfaces (which Guice does not support)
+  * installation of submodules via Module.configure() (which doesn't install @Provides methods) rather than Module.install()
+  * static field injection (which is recommended against)
+  * final field injection (which is recommended against and error-prone)
+
 How to install
 --------------
 Install findbugs-guice like any other Findbugs detector:
