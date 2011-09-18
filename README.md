@@ -1,6 +1,7 @@
 findbugs-guice
 ==============
-findbugs-guice is a [Findbugs](http://code.google.com/p/findbugs/) detector for [Guice](http://code.google.com/p/google-guice/).
+findbugs-guice is a detector for [Findbugs](http://code.google.com/p/findbugs/), a popular static
+analysis tool, that detects errors in the use of [Guice](http://code.google.com/p/google-guice/).
 
 findbugs-guice detects:
 
