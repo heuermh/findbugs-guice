@@ -84,9 +84,14 @@
 	
 	<BugPattern type="GUICE_STATIC_FIELD_INJECTION">
 		<ShortDescription>Static field annotated with @Inject</ShortDescription>
-		<LongDescription>Guice does not perform field injection on static fields.</LongDescription>
+		<LongDescription>Static field injection is recommended against.</LongDescription>
 		<Details>
-		Guice does not perform field injection on static fields.
+			<![CDATA[
+			"New applications developed with Guice should not use [requestStaticInjection()]." -- <a href="http://code.google.com/p/google-guice/wiki/AvoidStaticState">Guice: Avoid static state</a>.
+		
+			<p>Note that if you are using <code>requestStaticInjection()</code> for this class,
+			Guice will neither inject the static field, nor fail with an error notifying you of this.</p>
+			]]>
 		</Details>
 	</BugPattern>
 	
