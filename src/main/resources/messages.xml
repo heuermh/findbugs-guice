@@ -33,7 +33,7 @@
 
 	<BugPattern type="GUICE_SCOPE_ON_INTERFACE">
 		<ShortDescription>Scope annotation on interfaces</ShortDescription>
-		<LongDescription>Interface {0} is annotated with a scope, {1}.</LongDescription>
+		<LongDescription>Interface {0} is annotated with a scope, {1}</LongDescription>
 		<Details>
 			<![CDATA[
 			Guice does not support annotating an interface with a scope.
