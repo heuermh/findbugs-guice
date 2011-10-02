@@ -44,6 +44,7 @@ public class FinalFieldInjectionTest {
 	
 	@Test(expected=ConfigurationException.class)
 	public void jsr330AnnotatedFinalFieldsThrowProvisionException() {
+		@SuppressWarnings("unused")
 		ClassContainingAFieldAnnotatedWithJSR330Inject instance = injector.getInstance(ClassContainingAFieldAnnotatedWithJSR330Inject.class);
 	}
 }
