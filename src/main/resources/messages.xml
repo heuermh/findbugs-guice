@@ -122,7 +122,9 @@
 		    
 		    <p>As such, using final field injection can lead to confusion.</p>
 		    <p>Furthermore, since Guice documentation says to not use final field injection,
-		    you should not: its behaviour may change.</p> 
+		    you should not: its behaviour may change.</p>
+		    
+		    <p>Note that JSR-330 does not support final field injection.</p>
 		    
 		    <p>See also:</p>
 		    <ul>
