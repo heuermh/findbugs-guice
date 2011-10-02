@@ -5,10 +5,12 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.me.tom_fitzhenry.findbugs.guice.benchmarks.ClassContainingAFinalFieldAnnotatedWithInjectAssignedWithDeclaration;
+import uk.me.tom_fitzhenry.findbugs.guice.benchmarks.ClassContainingAFieldAnnotatedWithJSR330Inject;
 import uk.me.tom_fitzhenry.findbugs.guice.benchmarks.ClassContainingAFinalFieldAnnotatedWithInjectAssignedInConstructor;
+import uk.me.tom_fitzhenry.findbugs.guice.benchmarks.ClassContainingAFinalFieldAnnotatedWithInjectAssignedWithDeclaration;
 
 import com.google.inject.AbstractModule;
+import com.google.inject.ConfigurationException;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
@@ -38,5 +40,10 @@ public class FinalFieldInjectionTest {
 	public void guiceInjectsFinalFieldsIfAssignedInConstructor() {
 		ClassContainingAFinalFieldAnnotatedWithInjectAssignedInConstructor benchmark = injector.getInstance(ClassContainingAFinalFieldAnnotatedWithInjectAssignedInConstructor.class);
 		assertEquals("injected string", benchmark.getFoo());
+	}
+	
+	@Test(expected=ConfigurationException.class)
+	public void jsr330AnnotatedFinalFieldsThrowProvisionException() {
+		ClassContainingAFieldAnnotatedWithJSR330Inject instance = injector.getInstance(ClassContainingAFieldAnnotatedWithJSR330Inject.class);
 	}
 }
