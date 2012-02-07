@@ -9,6 +9,7 @@ import uk.me.tom_fitzhenry.findbugs.guice.benchmarks.AModuleThatBindsPackagePriv
 import uk.me.tom_fitzhenry.findbugs.guice.benchmarks.AModuleThatBindsPackagePrivateImplementationClassPackagePrivateConstructor;
 import uk.me.tom_fitzhenry.findbugs.guice.benchmarks.AModuleThatBindsPublicImplementationClass;
 import uk.me.tom_fitzhenry.findbugs.guice.benchmarks.AModuleThatBindsPublicImplementationClassPackagePrivateConstructor;
+import uk.me.tom_fitzhenry.findbugs.guice.benchmarks.AModuleWithoutBindings;
 
 import com.youdevise.fbplugins.tdd4fb.DetectorAssert;
 
@@ -25,23 +26,33 @@ public class PublicImplementationClassConstructorDetectorTest {
         bugReporter = DetectorAssert.bugReporterForTesting();
         detector = new PublicImplementationClassConstructorDetector(bugReporter);
     }
-    
+
     @Test
     public void publicImplementationClassConstructorIsReported() throws Exception {
     	assertBugReportedAgainstClass(AModuleThatBindsPublicImplementationClass.class);
     	assertBugReportedAgainstClass(AModuleThatBindsPackagePrivateImplementationClass.class);
     }
-    
+
     @Test
     public void packagePrivateImplementationClassConstructorIsNotReported() throws Exception {
     	assertNoBugsReportedForClass(AModuleThatBindsPublicImplementationClassPackagePrivateConstructor.class);
     	assertNoBugsReportedForClass(AModuleThatBindsPackagePrivateImplementationClassPackagePrivateConstructor.class);
     }
-    
+
+    @Test
+    public void notModuleIsNotReported() throws Exception {
+        assertNoBugsReportedForClass(Object.class);
+    }
+
+    @Test
+    public void moduleWithoutBindingsIsNotReported() throws Exception {
+        assertNoBugsReportedForClass(AModuleWithoutBindings.class);
+    }
+
     private void assertBugReportedAgainstClass(Class<?> classToTest) throws Exception {
         DetectorAssert.assertBugReported(classToTest, detector, bugReporter, ofType("GUICE_PUBLIC_IMPLEMENTATION_CLASS_CONSTRUCTOR"));
     }
-    
+
     private void assertNoBugsReportedForClass(Class<?> classToTest) throws Exception {
         DetectorAssert.assertNoBugsReported(classToTest, detector, bugReporter);
     }
