@@ -37,11 +37,12 @@ public final class PublicImplementationClassConstructorDetector extends OpcodeSt
                 if (isCallingTo()) {
                     OpcodeStack.Item stackItem = stack.getStackItem(0);
                     try {
-                        String implementationClassName = (String) stackItem.getConstant();
-                        Class<?> implementationClass = Class.forName(implementationClassName.replace("/", "."));
+                        String slashedClassName = (String) stackItem.getConstant();
+                        String dottedClassName = slashedClassName.replace("/", ".");
+                        Class<?> implementationClass = Class.forName(dottedClassName);
                         for (Constructor<?> constructor : implementationClass.getDeclaredConstructors()) {
                             if (Modifier.isPublic(constructor.getModifiers())) {
-                                bugReporter.reportBug(new BugInstance(this, "GUICE_PUBLIC_IMPLEMENTATION_CLASS_CONSTRUCTOR", NORMAL_PRIORITY).addClassAndMethod(this));
+                                bugReporter.reportBug(new BugInstance(this, "GUICE_PUBLIC_IMPLEMENTATION_CLASS_CONSTRUCTOR", NORMAL_PRIORITY).addClassAndMethod(this).addTypeOfNamedClass(dottedClassName));
                             }
                         }
                     }

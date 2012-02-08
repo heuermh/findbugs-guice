@@ -24,6 +24,16 @@
                   speed="fast"
                   reports="GUICE_FINAL_FIELD_INJECTION"
         />
+
+        <Detector class="uk.me.tom_fitzhenry.findbugs.guice.PublicImplementationClassDetector"
+                  speed="fast"
+                  reports="GUICE_PUBLIC_IMPLEMENTATION_CLASS"
+        />
+
+        <Detector class="uk.me.tom_fitzhenry.findbugs.guice.PublicImplementationClassConstructorDetector"
+                  speed="fast"
+                  reports="GUICE_PUBLIC_IMPLEMENTATION_CLASS_CONSTRUCTOR"
+        />
         
         <BugPattern type="GUICE_SCOPE_ON_INTERFACE"
                     category="CORRECTNESS"
@@ -41,6 +51,16 @@
         />
         
         <BugPattern type="GUICE_FINAL_FIELD_INJECTION"
+                    category="CORRECTNESS"
+                    abbrev="GUICE"
+        />
+
+        <BugPattern type="GUICE_PUBLIC_IMPLEMENTATION_CLASS"
+                    category="CORRECTNESS"
+                    abbrev="GUICE"
+        />
+
+        <BugPattern type="GUICE_PUBLIC_IMPLEMENTATION_CLASS_CONSTRUCTOR"
                     category="CORRECTNESS"
                     abbrev="GUICE"
         />

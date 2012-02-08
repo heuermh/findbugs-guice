@@ -31,6 +31,18 @@
 	    </Details>
 	</Detector>
 
+	<Detector class="uk.me.tom_fitzhenry.findbugs.guice.PublicImplementationClassDetector">
+	    <Details>
+	    	Finds bindings to implementation classes with public visibility.
+	    </Details>
+	</Detector>
+
+	<Detector class="uk.me.tom_fitzhenry.findbugs.guice.PublicImplementationClassConstructorDetector">
+	    <Details>
+	    	Finds bindings to implementation classes with public constructor visibility.
+	    </Details>
+	</Detector>
+
 	<BugPattern type="GUICE_SCOPE_ON_INTERFACE">
 		<ShortDescription>Scope annotation on interfaces</ShortDescription>
 		<LongDescription>Interface {0} is annotated with a scope, {1}</LongDescription>
@@ -133,6 +145,44 @@
 		    
 		    ]]>
 		       
+		</Details>
+	</BugPattern>
+
+	<BugPattern type="GUICE_PUBLIC_IMPLEMENTATION_CLASS">
+		<ShortDescription>Binding to implementation class with public visibility</ShortDescription>
+		<LongDescription>Module {0} binds to an implementation class {3} with public visibility.</LongDescription>
+		<Details>
+			<![CDATA[
+			Guice recommends keeping constructors on Guice-instantiated classes as hidden as possible.
+
+			<p><a href="http://code.google.com/p/google-guice/wiki/KeepConstructorsHidden">Guice best practices : KeepConstructorsHidden</a></p>
+			
+			<p>Recommended correction:<br/>
+			Limit the visibility of both your implementation classes and their constructors. Typically package private is preferred for both, as this facilitates:
+			<ul>
+			    <li>binding the class within a Module in the same package</li>
+			    <li>unit testing the class through means of direct instantiation</li>
+			</ul></p>
+			]]>
+		</Details>
+	</BugPattern>
+
+	<BugPattern type="GUICE_PUBLIC_IMPLEMENTATION_CLASS_CONSTRUCTOR">
+		<ShortDescription>Binding to implementation class with public constructor visibility</ShortDescription>
+		<LongDescription>Module {0} binds to an implementation class {3} that has one or more constructor(s) with public visibility.</LongDescription>
+		<Details>
+			<![CDATA[
+			Guice recommends keeping constructors on Guice-instantiated classes as hidden as possible.
+
+			<p><a href="http://code.google.com/p/google-guice/wiki/KeepConstructorsHidden">Guice best practices : KeepConstructorsHidden</a></p>
+			
+			<p>Recommended correction:<br/>
+			Limit the visibility of both your implementation classes and their constructors. Typically package private is preferred for both, as this facilitates:
+			<ul>
+			    <li>binding the class within a Module in the same package</li>
+			    <li>unit testing the class through means of direct instantiation</li>
+			</ul></p>
+			]]>
 		</Details>
 	</BugPattern>
 	
