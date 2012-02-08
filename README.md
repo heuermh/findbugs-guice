@@ -9,6 +9,8 @@ findbugs-guice detects:
   * installation of submodules via Module.configure() (which doesn't install @Provides methods) rather than Module.install()
   * static field injection (which is recommended against)
   * final field injection (which is recommended against and error-prone)
+  * bindings to implementation classes with public visibility
+  * bindings to implementation classes with public constructor visibility
 
 How to install
 --------------
