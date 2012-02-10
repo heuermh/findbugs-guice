@@ -33,12 +33,12 @@
 			<version>3.0</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<!-- https://github.com/youdevise/test-driven-detectors4findbugs -->
 			<groupId>com.youdevise</groupId>
 			<artifactId>test-driven-detectors4findbugs</artifactId>
-			<version>0.2</version>
+			<version>0.2.1</version>
 			<scope>test</scope>
 		</dependency>
 		
